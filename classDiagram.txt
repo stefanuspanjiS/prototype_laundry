@@ -1,0 +1,76 @@
++----------------------------+
+|      SamsLaundryApp        |
++----------------------------+
+| Attributes:                |
+|  - title: String           |
+|  - theme: ThemeData        |
+|----------------------------|
+| Methods:                   |
+|  - build(context)          |
++----------------------------+
+                   |
+                   ↓
++----------------------------+
+| SplashScreenWithDelay      |
++----------------------------+
+| Attributes:                |
+|  - none                    |
+|----------------------------|
+| Methods:                   |
+|  - initState()             |
+|  - build(context)          |
++----------------------------+
+                   |
+                   ↓
++----------------------------+
+|       LoginScreen          |
++----------------------------+
+| Attributes:                |
+|  - none                    |
+|----------------------------|
+| Methods:                   |
+|  - build(context)          |
++----------------------------+
+                   |
+                   ↓
++-------------------------------------------+
+|    DashboardScreen                        |
++-------------------------------------------+
+| Attributes:                               |
+|  - services: List<Map<String, dynamic>>   |
+|-------------------------------------------|
+| Methods:                                  |
+|  - build(context)                         |
+|  - _showCart()                            |
+|  - _navigateToDescription(service)        |
+|  - _navigateToSalesForm(service)          |
++-------------------------------------------+
+                   |
+                   ↓
++----------------------------------+                        +-----------------------------------------------+
+| ProductDescriptionScreen         |                        |      SalesFormScreen                          |
++----------------------------------+                        +-----------------------------------------------+
+| Attributes:                      |                        | Attributes:                                   |
+|  - service: Map<String, dynamic> |                        |  - service: Map<String, dynamic>              |
+|----------------------------------|                        |  - _quantityController: TextEditingController |
+| Methods:                         |                        |  - _total: int                                |
+|  - build(context)                |                        |-----------------------------------------------|
++----------------------------------+                        | Methods:                                      |
+                                                            |  - _calculateTotal()                          |
+                                                            |  - _addToCart()                               |
+                                                            |  - build(context)                             |
+                                                            +-----------------------------------------------+
+                                                                                |
+                                                                                ↓
++------------------------------------------+                     +----------------------------------------------+
+|        CartScreen                        |                     |      PaymentScreen                           |
++------------------------------------------+                     +----------------------------------------------+
+| Attributes:                              |                     | Attributes:                                  |
+|  - cartItems: List<Map<String, dynamic>> |                     |  - total: int                                |
+|  - totalAmount: int                      |                     |  - _paymentController: TextEditingController |
+|------------------------------------------|                     |  - _change: int                              |
+| Methods:                                 |                     |----------------------------------------------|
+|  - build(context)                        |                     | Methods:                                     |
+|  - _navigateToPayment()                  |                     |  - _calculateChange()                        |
++------------------------------------------+                     |  - build(context)                            |
+                                                                 +----------------------------------------------+
